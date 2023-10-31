@@ -8,7 +8,11 @@ If you read the .md files in the docs directory in that github, you'll find grea
 I then started out by watching this video: \
 https://www.youtube.com/watch?v=bYS93r6U0zg \
 It gave me a much better understanding of how things work \
+<<<<<<< HEAD
 Be aware that some of the stuff he does, like for loops etc, is not allowed for 42 students, just use the video for understanding minilibx.
+=======
+Be aware that some of the stuff he does, like for loops etc, is not allowed for 42 students, just use the video for understanding minilibx. 
+>>>>>>> 2ecd197f67f0f5fc1f740169e6987786698e2d85
 
 Then I read through the documentation from this incredible source: \
 https://harm-smits.github.io/42docs/libs/minilibx
