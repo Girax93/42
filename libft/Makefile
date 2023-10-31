@@ -66,6 +66,7 @@ $(LIBOBJS_DIR)%.o: %.c | $(LIBOBJS_DIR)
 # The reason we have $(LIBOBJS_DIR) as an order-only prerequisite twice
 # is to add robustness, in case ie. the folder is deleted without the
 # .c files being modified. Hence, it will always make sure it exists.
+
 $(LIBOBJS_DIR):
 	mkdir -p ../objects/libft_objects
 
