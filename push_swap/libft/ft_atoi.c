@@ -3,33 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ari <marvin@42.fr>                         +#+  +:+       +#+        */
+/*   By: agrawe <agrawe@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 15:22:20 by ari               #+#    #+#             */
-/*   Updated: 2023/01/28 16:59:39 by ari              ###   ########.fr       */
+/*   Updated: 2023/10/29 16:39:38 by agrawe           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 /*
-converts a string to an integer. 
-1 parameter: the string to be converted. 
+converts a string to an integer.
+1 parameter: the string to be converted.
 */
-
-int		ft_atoi(const char *str);
-/*
 
 #include <string.h>
 #include <stdio.h>
-
-int main(void)
-{
-    char str[] = "+123";
-    int result = ft_atoi(str);
-    printf("%d", result);
-    return (0);
-}*/
 
 int	ft_atoi(const char *str)
 {
@@ -54,3 +43,12 @@ int	ft_atoi(const char *str)
 	}
 	return (sign * num);
 }
+
+/*
+int main(void)
+{
+    char str[] = "+123";
+    int result = ft_atoi(str);
+    printf("%d", result);
+    return (0);
+}*/

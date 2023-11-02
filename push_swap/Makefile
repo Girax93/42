@@ -1,5 +1,3 @@
-include extras/colours.mk
-
 # PUSH_SWAP MAKEFILE.
 
 NAME		=	push_swap
@@ -34,9 +32,11 @@ SOURCES 	=	$(addprefix $(SRC_DIR), $(SRC_FILES))
 OBJECTS 	=	$(addprefix $(OBJS_DIR), $(SRC_FILES:.c=.o) )
 DEPENDS		=	$(addprefix $(DEP_DIR), $(OBJECTS:.c=.d))
 
-PRINTED		=	0
+# Colours
+GREEN = \033[0;32m
+RED = \033[0;31m
 
-end: all
+end: extras all
 	@echo -e "$(GREEN)[1 / 5] made an objects folder. $(NO_COLOR)"
 	@sleep 0.5
 	@echo -e "$(GREEN)[2 / 5] made another folder.    $(NO_COLOR)"
@@ -50,9 +50,9 @@ end: all
 	@echo -e "$(GREEN)[? / ?] Zzzz...    ZzzZZzzz...  $(NO_COLOR)"
 	@sleep 2
 	@if [ "$(shell uname)" = "Darwin" ]; then \
-        bash extras/MAC_COMMANDS.sh; \
+        bash Makefile_Extras/push_swap/MAC_COMMANDS.sh; \
     elif [ "$(shell uname)" = "Linux" ]; then \
-        bash extras/LIN_COMMANDS.sh; \
+        bash Makefile_Extras/push_swap/LIN_COMMANDS.sh; \
     fi
 
 skip: $(NAME)
@@ -64,24 +64,30 @@ skip: $(NAME)
 
 all: $(NAME)
 
-
 -include $(DEPENDS)
 
-lib: | $(OBJS_DIR) $(DEP_DIR)
+check-internet:
+	@ping -c 1 github.com > /dev/null 2>&1 || \
+	(echo "No internet connection. Skipping..." && exit 0)
+
+# Uses HTTPS if SSH is not availabe.
+extras: check-internet
+	@if [ ! -f Makefile_Extras/push_swap/colours.mk ]; then \
+        echo "Downloading Makefile Dependencies..."; \
+        git clone git@github.com:Girax93/Makefile_Extras.git > /dev/null 2>&1 || \
+		git clone https://github.com/Girax93/Makefile_Extras.git > /dev/null 2>&1 ; \
+    fi
+
+lib:
 	@make -C $(LIB_DIR) > /dev/null 2>&1
 
-$(NAME): $(OBJECTS) lib
+$(NAME): $(OBJECTS)
 	@$(CC) $(FLAGS) -I $(LIB_DIR) -o $@ $(OBJECTS) -L$(LIB_DIR) -lft
 
-$(OBJS_DIR)%.o: $(SRC_DIR)%.c | $(OBJS_DIR) $(DEP_DIR)
+$(OBJS_DIR)%.o: $(SRC_DIR)%.c | $(OBJS_DIR) $(DEP_DIR) lib
 	@$(CC) $(FLAGS) -I $(INC_DIR) -c $< -o $@
 	@cp $(OBJS_DIR)$*.d $(DEP_DIR)$*.d
 	@rm -f $(OBJS_DIR)$*.d
-#	@if [ $(PRINTED) -eq 0 ]; then \
-		echo -e "$(GREEN)[3 / 6] created some files...$(NO_COLOR)"; \
-		sleep 1; \
-		$(eval PRINTED = 1) \
-	fi
 
 $(OBJS_DIR):
 	@mkdir -p $@
@@ -100,10 +106,11 @@ clean:
 fclean: clean
 	@rm -f $(NAME) > /dev/null 2>&1
 	@echo -e "$(GREEN)[ Removed push_swap ]$(NO_COLOR)"
+	@rm -rf Makefile_Extras > /dev/null
+	@echo -e "$(GREEN)[ Removed Makefile_Extras ]$(NO_COLOR)"
 
-re: fclean all
-	@echo -e "$(GREEN)[ Recompilation Complete! ] $(NO_COLOR)"
+re: fclean end
 
-re-skip: fclean all
+re-skip: fclean skip
 
 .PHONY: all clean fclean re
