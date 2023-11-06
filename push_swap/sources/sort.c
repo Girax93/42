@@ -6,7 +6,7 @@
 /*   By: agrawe <agrawe@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/20 23:30:32 by agrawe            #+#    #+#             */
-/*   Updated: 2023/08/29 18:48:39 by agrawe           ###   ########.fr       */
+/*   Updated: 2023/11/06 20:40:02 by agrawe           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,5 +121,4 @@ void	push_swap(t_stack **stack_a, t_stack **stack_b)
 		sort_three(stack_a);
 	else if (size > 3 && !sorted_check(*stack_a))
 		sort_big(stack_a, stack_b);
- }
-
+}

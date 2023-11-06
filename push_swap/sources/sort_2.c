@@ -6,7 +6,7 @@
 /*   By: agrawe <agrawe@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/20 23:30:20 by agrawe            #+#    #+#             */
-/*   Updated: 2023/08/29 18:46:56 by agrawe           ###   ########.fr       */
+/*   Updated: 2023/11/06 20:01:23 by agrawe           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,8 @@ int	closest_higher(t_stack *stack_a, t_stack *stack_b, int *target_sorted)
 	target_pos = 0;
 	while (tmp_a)
 	{
-		if (tmp_a->sorted_pos > stack_b->sorted_pos && tmp_a->sorted_pos < *target_sorted)
+		if (tmp_a->sorted_pos > stack_b->sorted_pos \
+			&& tmp_a->sorted_pos < *target_sorted)
 		{
 			*target_sorted = tmp_a->sorted_pos;
 			target_pos = tmp_a->pos;
@@ -94,7 +95,7 @@ int	lowest_sorted_pos(t_stack *stack_a, int *target_sorted)
 // cost_b is the cost of getting the element to the top of the B stack
 // * counting the amount of moves (rb, rrb, sb).
 // cost is negative doing a reverse move is faster. I.E rb 1 time = -1
-void get_cost(t_stack **stack_a, t_stack **stack_b)
+void	get_cost(t_stack **stack_a, t_stack **stack_b)
 {
 	t_stack	*tmp_b;
 	int		size_a;
@@ -111,13 +112,12 @@ void get_cost(t_stack **stack_a, t_stack **stack_b)
 	{
 		if (tmp_b->pos - 1 <= half_size_b)
 			tmp_b->cost_b = tmp_b->pos - 1;
-        else
+		else
 			tmp_b->cost_b = (size_b - tmp_b->pos + 1) * -1;
-        if (tmp_b->target_pos - 1 <= half_size_a)
+		if (tmp_b->target_pos - 1 <= half_size_a)
 			tmp_b->cost_a = tmp_b->target_pos - 1;
 		else
 			tmp_b->cost_a = (size_a - tmp_b->target_pos + 1) * -1;
 		tmp_b = tmp_b->next;
 	}
 }
-

@@ -6,7 +6,7 @@
 /*   By: agrawe <agrawe@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/20 23:28:36 by agrawe            #+#    #+#             */
-/*   Updated: 2023/08/20 23:28:40 by agrawe           ###   ########.fr       */
+/*   Updated: 2023/11/06 19:38:59 by agrawe           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,7 @@ int			zero_check(char *av);
 int			duplicate_check(char **av);
 int			num_str_cmp(const char *s1, const char *s2);
 int			is_correct_input(char **av);
+int			process_and_check_input(char *arg);
 
 //sort functions
 void		sorted_pos(t_stack *stack);

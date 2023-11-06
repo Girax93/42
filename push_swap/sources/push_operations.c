@@ -6,7 +6,7 @@
 /*   By: agrawe <agrawe@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/20 23:31:00 by agrawe            #+#    #+#             */
-/*   Updated: 2023/08/29 18:50:31 by agrawe           ###   ########.fr       */
+/*   Updated: 2023/11/06 20:00:02 by agrawe           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	push_a(t_stack **stack_a, t_stack **stack_b)
 	int		pos;
 
 	if (!(*stack_b))
-		return;
+		return ;
 	tmp = *stack_b;
 	*stack_b = tmp->next;
 	tmp->next = *stack_a;

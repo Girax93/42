@@ -6,7 +6,7 @@
 /*   By: agrawe <agrawe@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/20 23:30:51 by agrawe            #+#    #+#             */
-/*   Updated: 2023/08/29 18:50:02 by agrawe           ###   ########.fr       */
+/*   Updated: 2023/11/06 19:47:42 by agrawe           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,11 @@
 // long int atoi to secure conversion of input values that exceeds int limits
 long int	ft_atol(const char *str)
 {
-	long int	nb = 0;
-	int			isneg = 1;
+	long int	nb;
+	int			isneg;
 
+	isneg = 1;
+	nb = 0;
 	if (*str == '+' || *str == '-')
 	{
 		if (*str == '-')
@@ -35,10 +37,10 @@ long int	ft_atol(const char *str)
 //finds highest val in the list
 int	find_highest(t_stack *stack)
 {
-	int highest;
+	int	highest;
 
 	if (!stack)
-		return (0); // or some other value indicating an empty stack
+		return (0);
 	highest = stack->val;
 	while (stack)
 	{
@@ -78,14 +80,14 @@ int	abs_num(int num)
 
 // Simply checks if s1 is identical to s2.
 // If the function returns 0, they are identical.
-int num_str_cmp(const char *s1, const char *s2)
+int	num_str_cmp(const char *s1, const char *s2)
 {
 	while (*s1 == '+' && *s2 == '+')
 	{
 		s1++;
 		s2++;
 	}
-    if (*s1 == '+')
+	if (*s1 == '+')
 		s1++;
 	else if (*s2 == '+')
 		s2++;
@@ -93,7 +95,6 @@ int num_str_cmp(const char *s1, const char *s2)
 	{
 		s1++;
 		s2++;
-    }
-    return ((unsigned char)*s1 - (unsigned char)*s2);
+	}
+	return ((unsigned char)*s1 - (unsigned char)*s2);
 }
-

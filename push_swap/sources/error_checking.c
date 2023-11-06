@@ -6,7 +6,7 @@
 /*   By: agrawe <agrawe@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/20 23:29:49 by agrawe            #+#    #+#             */
-/*   Updated: 2023/08/29 18:44:23 by agrawe           ###   ########.fr       */
+/*   Updated: 2023/11/06 20:22:32 by agrawe           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 // Also removes leading 0's.
 int	num_check(char *av)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	remove_leading_zeros(av);
@@ -27,11 +27,10 @@ int	num_check(char *av)
 	return (av[i] == '\0');
 }
 
-
 // Bool: does the input (1 arg) consist of only 0's?
 int	zero_check(char *av)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	if (ft_issign(av[i]))
@@ -40,7 +39,6 @@ int	zero_check(char *av)
 		i++;
 	return (av[i] == '\0');
 }
-
 
 // Bool: are there duplicate numbers in the args?
 // Uses num_str_cmp to test 2 strigns at a time.
@@ -63,7 +61,36 @@ int	duplicate_check(char **av)
 	return (0);
 }
 
+// Splits the space-separated strings and check each number.
+int	process_and_check_input(char *arg)
+{
+	char	**numbers;
+	int		i;
+	int		result;
+
+	numbers = ft_split(arg, ' ');
+	i = 0;
+	result = 1;
+	if (!numbers)
+		return (0);
+	while (numbers[i])
+	{
+		if (!num_check(numbers[i]))
+		{
+			result = 0;
+			break ;
+		}
+		i++;
+	}
+	i = 0;
+	while (numbers[i])
+		free(numbers[i++]);
+	free(numbers);
+	return (result);
+}
+
 // Bool: is the input correct?
+// Checks if the input is correct if one argument is a "string like this"
 // Checks if the input has more than one 0 value,
 // Checks if the input has anything else than numbers in it
 // Checks if the input has duplicates.
@@ -76,8 +103,17 @@ int	is_correct_input(char **av)
 	i = 1;
 	while (av[i])
 	{
-		if (!num_check(av[i]) || (zeros_bool += zero_check(av[i])) > 1)
-			return (0);
+		if (ft_strchr(av[i], ' '))
+		{
+			if (!process_and_check_input(av[i]))
+				return (0);
+		}
+		else
+		{
+			zeros_bool += zero_check(av[i]);
+			if (!num_check(av[i]) || zeros_bool > 1)
+				return (0);
+		}
 		i++;
 	}
 	if (duplicate_check(av))

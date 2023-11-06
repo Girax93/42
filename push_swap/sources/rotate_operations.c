@@ -6,7 +6,7 @@
 /*   By: agrawe <agrawe@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/20 23:31:28 by agrawe            #+#    #+#             */
-/*   Updated: 2023/08/29 18:51:07 by agrawe           ###   ########.fr       */
+/*   Updated: 2023/11/06 20:00:27 by agrawe           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	rotate(t_stack **stack)
 	int		size;
 
 	if (!*stack || !(*stack)->next)
-		return;
+		return ;
 	head = *stack;
 	*stack = head->next;
 	head->next = NULL;
@@ -54,6 +54,7 @@ void	rotate_b(t_stack **stack_b)
 	rotate(stack_b);
 	write(1, "rb\n", 3);
 }
+
 //rr (first node in both stacks becomes the last)
 void	rotate_ab(t_stack **stack_a, t_stack **stack_b)
 {

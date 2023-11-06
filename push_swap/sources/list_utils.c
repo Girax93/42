@@ -6,7 +6,7 @@
 /*   By: agrawe <agrawe@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/20 23:30:43 by agrawe            #+#    #+#             */
-/*   Updated: 2023/08/29 18:49:28 by agrawe           ###   ########.fr       */
+/*   Updated: 2023/11/06 20:30:24 by agrawe           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ void	add_to_end(t_stack **head, t_stack *new_node)
 
 //returns the size of the list
 // AKA: 32, 1234, 4  would return 3.
-int list_size(t_stack *stack)
+int	list_size(t_stack *stack)
 {
 	int	size;
 

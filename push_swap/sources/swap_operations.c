@@ -6,7 +6,7 @@
 /*   By: agrawe <agrawe@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/20 23:31:39 by agrawe            #+#    #+#             */
-/*   Updated: 2023/08/29 18:51:18 by agrawe           ###   ########.fr       */
+/*   Updated: 2023/11/06 20:01:53 by agrawe           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	swap(t_stack **stack)
 	int		pos;
 
 	if (!*stack || !(*stack)->next)
-		return;
+		return ;
 	first = *stack;
 	second = (*stack)->next;
 	first->next = second->next;
