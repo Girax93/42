@@ -6,12 +6,13 @@
 /*   By: agrawe <agrawe@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/20 23:31:49 by agrawe            #+#    #+#             */
-/*   Updated: 2023/11/06 20:43:40 by agrawe           ###   ########.fr       */
+/*   Updated: 2023/11/07 15:13:37 by agrawe           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
+// Makes a new string without leading zeros if leading zeros are found.
 void	remove_leading_zeros(char *av)
 {
 	int	i;
@@ -27,17 +28,12 @@ void	remove_leading_zeros(char *av)
 	while (av[i] == '0')
 		i++;
 	if (av[i] != '\0' && i > start)
-	{
 		ft_memmove(&av[start], &av[i], ft_strlen(av) - i + 1);
-	}
 	else if (start == 0 && av[i] == '\0')
-	{
 		av[1] = '\0';
-	}
 }
 
 /*
-// Makes a new string without leading zeros if leading zeros are found.
 void	remove_leading_zeros(char *av)
 {
 	int	i;

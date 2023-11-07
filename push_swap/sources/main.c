@@ -6,7 +6,7 @@
 /*   By: agrawe <agrawe@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/20 23:28:48 by agrawe            #+#    #+#             */
-/*   Updated: 2023/11/06 20:23:16 by agrawe           ###   ########.fr       */
+/*   Updated: 2023/11/07 15:42:30 by agrawe           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ int	main(int ac, char **av)
 {
 	t_stack	*stack_a;
 	t_stack	*stack_b;
+
 
 	if (ac < 2)
 		return (0);

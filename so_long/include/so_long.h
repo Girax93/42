@@ -6,7 +6,7 @@
 /*   By: agrawe <agrawe@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/02 15:35:28 by agrawe            #+#    #+#             */
-/*   Updated: 2023/10/18 15:14:05 by agrawe           ###   ########.fr       */
+/*   Updated: 2023/11/07 16:08:09 by agrawe           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@
 # include <stdint.h>
 # include <stdlib.h>
 # include <time.h>
-# include <SDL2/SDL.h>
-# include <SDL2/SDL_mixer.h>
+# include "../include/SDL/SDL.h"
+# include "../include/SDL/SDL_mixer.h"
 
 # define MAP_EXIT 'E'
 # define MAP_ENTRY 'P'
