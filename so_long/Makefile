@@ -6,17 +6,17 @@
 #    By: agrawe <agrawe@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/02 15:33:25 by agrawe            #+#    #+#              #
-#    Updated: 2023/10/18 15:48:41 by agrawe           ###   ########.fr        #
+#    Updated: 2023/11/09 18:34:24 by agrawe           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		:=	so_long
 NAME_BONUS	=	so_long_bonus
-CFLAGS		:=	-g -O0 -Wextra -Wall -Werror -Wunreachable-code -Ofast
+CFLAGS		:=	-g -O0 -Wextra -Wall -Werror -Wunreachable-code -Ofast -m32
 LIBMLX		:=	./lib/MLX42
 LIBFT		:=	./lib/libft/libft.a
 PRINTF		:=	./lib/ft_printf/libftprintf.a
-SDL_DIR		=	./lib/SDL
+SDL_DIR		=	./lib/SDL2
 SRC_DIR		=	src/
 OBJ_DIR 	=	objs/
 
@@ -26,7 +26,7 @@ HEADERS	:=	-I ./include \
 			-I ./lib/libft
 
 LIBS	:=	$(LIBFT) $(PRINTF) $(LIBMLX)/build/libmlx42.a \
-			-L$(SDL_DIR) -lSDL2-2.0 -lSDL2_mixer \
+			-L$(SDL_DIR) -lSDL2 -lSDL2_mixer \
 			-ldl -lglfw -pthread -lm
 
 SRCS	:=	check_map_2.c  \

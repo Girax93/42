@@ -3,7 +3,7 @@
 shell		:=	/bin/bash
 NAME		=	push_swap
 CC			= 	cc
-FLAGS		=	-Werror -Wextra -Wall -MMD -MP
+FLAGS		=	-Werror -Wextra -Wall -MMD -MP -g3
 SRC_DIR		=	sources/
 LIB_DIR		=	libft/
 DEP_DIR		=	dependencies/
